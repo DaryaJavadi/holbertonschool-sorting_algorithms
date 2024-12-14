@@ -6,25 +6,25 @@
 #include "sort.h"
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j;
 	int temp;
-	int swapped;
+	size_t i, k;
 
-	for (i = 0; i < size - 1; i++)
+	if (!array || !size)
+		return;
+
+	i = 0;
+	while (i < size)
 	{
-		swapped = 0;
-		for (j = 0; j < size - 1; j++)
+		for (k = 0; k < size - 1; k++)
 		{
-			if (array[j] > array[j + 1])
+			if (array[k] > array[k + 1])
 			{
-				temp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = temp;
-				swapped = 1;
+				temp = array[k];
+				array[k] = array[k + 1];
+				array[k + 1] = temp;
 				print_array(array, size);
 			}
 		}
-		if (swapped == 0)
-			break;
+		i++;
 	}
 }
